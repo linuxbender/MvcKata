@@ -21,6 +21,7 @@
 
 using DiResolver.Services;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 
 namespace DiResolver.Bootstrapper
 {
@@ -31,11 +32,16 @@ namespace DiResolver.Bootstrapper
     {        
         public static void RegisterTypes(IUnityContainer container)
         {
+            //Set Default RegisterType
             RegisterByConvention(container);
-
             
             //add your custome container register hier..
+
             //eg Singelton: container.RegisterType<IHelloService, HelloService>(new HierarchicalLifetimeManager());
+            //eg Singelton: container.RegisterInstance<IPersonService>(new PersonService(),new HierarchicalLifetimeManager());
+
+            // Read RegisterType from configuration
+            container.LoadConfiguration();
         }
 
         /// <summary>
