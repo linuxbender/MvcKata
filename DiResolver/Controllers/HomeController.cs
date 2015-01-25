@@ -10,8 +10,7 @@ namespace DiResolver.Controllers
 
         public HomeController(IHelloService helloService)
         {            
-            _helloService = helloService;
-            Debug.WriteLine("Service Code: {0}",helloService.GetHashCode());
+            _helloService = helloService;           
         }
 
         public ActionResult Index()
