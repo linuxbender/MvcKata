@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using DiResolver.Services;
 
 namespace DiResolver.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IHelloService _helloService;
+
+        public HomeController(IHelloService helloService)
+        {            
+            _helloService = helloService;
+        }
+
         public ActionResult Index()
         {
+            ViewBag.Message = _helloService.SayHello("Alex");
             return View();
         }
 

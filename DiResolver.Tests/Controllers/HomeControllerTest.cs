@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DiResolver;
+﻿using System.Web.Mvc;
 using DiResolver.Controllers;
+using DiResolver.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DiResolver.Tests.Controllers
 {
@@ -16,7 +12,8 @@ namespace DiResolver.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            
+            HomeController controller = new HomeController(new HelloService());
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -29,7 +26,7 @@ namespace DiResolver.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(new HelloService());
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +39,7 @@ namespace DiResolver.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(new HelloService());
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;
