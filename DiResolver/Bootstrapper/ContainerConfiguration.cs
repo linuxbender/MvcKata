@@ -19,7 +19,6 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-using DiResolver.Services;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 
@@ -28,8 +27,15 @@ namespace DiResolver.Bootstrapper
     /// <summary>
     /// Configuration Class for the Uniyt IoC Container
     /// </summary>
-    public static class Configuration
+    public static class ContainerConfiguration
     {        
+        /// <summary>
+        /// Order is important, overwriting - from top to bottom.
+        /// 1. the convention based approach
+        /// 2. your code based approach will overwrite your convention
+        /// 3. web.config approach will anytime win
+        /// </summary>
+        /// <param name="container">IUnityContainer</param>
         public static void RegisterTypes(IUnityContainer container)
         {
             //Set Default RegisterType

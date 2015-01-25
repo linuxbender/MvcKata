@@ -27,15 +27,15 @@ namespace DiResolver.Bootstrapper
 {
     public static class Bootstrapper
     {
-        public static void Setup(HttpConfiguration configuration)
+        public static void Setup(HttpConfiguration config)
         {
             var container = new UnityContainer();
 
             //Configuration            
-            Configuration.RegisterTypes(container);
+            ContainerConfiguration.RegisterTypes(container);
 
             //init WebApi Resolver
-            configuration.DependencyResolver = new UnityResolver(container);
+            config.DependencyResolver = new UnityResolver(container);
 
             //init Mvc Resolver
             DependencyResolver.SetResolver(new UnityResolver(container));
