@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿using System;
 using System.Web.Mvc;
 using DiResolver.Services;
 
@@ -9,8 +9,12 @@ namespace DiResolver.Controllers
         private readonly IHelloService _helloService;
 
         public HomeController(IHelloService helloService)
-        {            
-            _helloService = helloService;           
+        {
+            if (helloService == null)
+            {
+                throw new ArgumentNullException("helloService");
+            }
+            _helloService = helloService;
         }
 
         public ActionResult Index()
