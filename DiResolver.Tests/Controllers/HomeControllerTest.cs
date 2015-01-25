@@ -1,19 +1,36 @@
 ﻿using System.Web.Mvc;
+using DiResolver.Bootstrapper;
 using DiResolver.Controllers;
 using DiResolver.Services;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Practices.Unity;
+using NUnit.Framework;
 
 namespace DiResolver.Tests.Controllers
-{
-    [TestClass]
+{    
+    [TestFixture]
     public class HomeControllerTest
     {
-        [TestMethod]
+        private IUnityContainer _container;
+
+        [SetUp]
+        public void Setup()
+        {
+            _container = new UnityContainer();
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
+            _container.Dispose();
+        }
+
+        [Test]
         public void Index()
         {
-            // Arrange
-            
-            HomeController controller = new HomeController(new HelloService());
+            // Arrange            
+            ContainerConfiguration.RegisterTypes(_container);
+
+            var controller = _container.Resolve<HomeController>();        
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -22,7 +39,7 @@ namespace DiResolver.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void About()
         {
             // Arrange
@@ -35,7 +52,7 @@ namespace DiResolver.Tests.Controllers
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [TestMethod]
+        [Test]
         public void Contact()
         {
             // Arrange
