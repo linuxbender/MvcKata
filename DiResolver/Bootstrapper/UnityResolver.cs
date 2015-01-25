@@ -21,24 +21,21 @@
 
 using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http.Dependencies;
 using Microsoft.Practices.Unity;
 
 namespace DiResolver.Bootstrapper
 {
-    public class MvcResolver : IDependencyResolver
+    /// <summary>
+    /// UnityResolver for WebApi and ASP.NET MVC
+    /// </summary>
+    public class UnityResolver : IDependencyResolver, System.Web.Mvc.IDependencyResolver
     {
-        protected IUnityContainer Container;
-        protected IBaseResolver Resolver;
+        private readonly IUnityContainer _container;
 
-        public MvcResolver(IUnityContainer container, IBaseResolver resolver)
+        public UnityResolver(IUnityContainer container)
         {
-            if (container == null)
-            {
-                throw new ArgumentNullException("container");
-            }
-            Container = container;
-            Resolver = resolver;
+            _container = container;
         }
 
         /// <summary>
@@ -46,7 +43,7 @@ namespace DiResolver.Bootstrapper
         /// </summary>
         public void Dispose()
         {
-            Resolver.Dispose();
+            _container.Dispose();
         }
 
         /// <summary>
@@ -56,7 +53,15 @@ namespace DiResolver.Bootstrapper
         /// <returns>resolved object from the container</returns>
         public object GetService(Type serviceType)
         {
-            return Resolver.GetService(serviceType);
+            try
+            {
+                return _container.Resolve(serviceType);
+            }
+            catch (ResolutionFailedException)
+            {
+
+                return null;
+            }
         }
 
         /// <summary>
@@ -67,7 +72,26 @@ namespace DiResolver.Bootstrapper
         /// <returns>resolve object list from the container</returns>
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return Resolver.GetServices(serviceType);
+            try
+            {
+                return _container.ResolveAll(serviceType);
+            }
+            catch (ResolutionFailedException)
+            {
+
+                return new List<object>();
+            }
         }
-    } //end of class
-} //end of namespace
+
+        /// <summary>
+        /// HttpConfiguration object has global scope. When web app create a controller,
+        /// it calls this method. it will return a IDependencyScope - like a Child scope
+        /// </summary>
+        /// <returns>MvcResolver</returns>
+        public IDependencyScope BeginScope()
+        {
+            var child = _container.CreateChildContainer();
+            return new UnityResolver(child);
+        }
+    }
+}

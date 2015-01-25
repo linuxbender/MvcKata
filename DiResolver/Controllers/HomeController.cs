@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics;
+using System.Web.Mvc;
 using DiResolver.Services;
 
 namespace DiResolver.Controllers
@@ -10,6 +11,7 @@ namespace DiResolver.Controllers
         public HomeController(IHelloService helloService)
         {            
             _helloService = helloService;
+            Debug.WriteLine("Service Code: {0}",helloService.GetHashCode());
         }
 
         public ActionResult Index()

@@ -35,10 +35,10 @@ namespace DiResolver.Bootstrapper
             Configuration.RegisterTypes(container);
 
             //init WebApi Resolver
-            configuration.DependencyResolver = new WebApiResolver(container, new BaseResolver(container));
+            configuration.DependencyResolver = new UnityResolver(container);
 
             //init Mvc Resolver
-            DependencyResolver.SetResolver(new MvcResolver(container, new BaseResolver(container)));
+            DependencyResolver.SetResolver(new UnityResolver(container));
         }
     }
 }
