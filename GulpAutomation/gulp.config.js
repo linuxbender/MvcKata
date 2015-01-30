@@ -1,7 +1,13 @@
 module.exports = function () {
     'use strict';
+    
+    var client = './';
+    
     var config = {
-        allJs: ['Scripts/App/**/*.js', './*.js']
+        tmp: './tmp/',
+        allJs: ['Scripts/App/**/*.js', './*.js'],
+        sass: client + 'Styles/app.scss'
     };
+    
     return config;
 };

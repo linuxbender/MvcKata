@@ -1,0 +1,36 @@
+@import '_variables';
+
+/*.style-test {
+    transform-origin: center bottom;
+}*/
+
+$colorDemo:#fff;
+
+/*
+* Main CSS
+*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+
+    > .container {
+        padding: 60px 15px 0px;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: $colorBackground;
+
+    > .container {
+        padding-right: $pixel15;
+        padding-left: $pixel15;
+    }
+}
