@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,6 +6,14 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!-- bower:css -->
+    <!-- endbower -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/tmp/app.css">
+    <!-- endinject -->
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,5 +46,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
+    <!-- bower:js -->
+    <script src="/bower_modules/es5-shim/es5-shim.js"></script>
+    <script src="/bower_modules/angularjs/angular.js"></script>
+    <script src="/bower_modules/angular/angular.js"></script>
+    <script src="/bower_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_modules/angular-route/angular-route.js"></script>
+    <script src="/bower_modules/lodash/lodash.js"></script>
+    <script src="/bower_modules/json3/lib/json3.js"></script>
+    <script src="/bower_modules/angular-animate/angular-animate.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="/Scripts/App/demo.module.js"></script>
+    <script src="/Scripts/App/demo.js"></script>
+    <!-- endinject -->
 </body>
 </html>

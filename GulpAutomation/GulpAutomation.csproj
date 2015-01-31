@@ -150,6 +150,8 @@
     <Content Include="package.json" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="gulpfile.js" />
+    <Content Include="Scripts\App\app.js" />
+    <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -187,7 +189,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\" />
     <Folder Include="tmp\" />
   </ItemGroup>
   <ItemGroup>

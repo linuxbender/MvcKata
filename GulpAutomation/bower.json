@@ -6,10 +6,9 @@
     "daniel glenn"
   ],
   "description": "GulpAutomation",
+  "main": "Views/Shared/_Layout.cshtml",
   "moduleType": [
-    "es6",
-    "globals",
-    "node"
+    "globals"
   ],
   "license": "MIT",
   "private": true,
