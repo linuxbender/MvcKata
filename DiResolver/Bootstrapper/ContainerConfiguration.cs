@@ -19,6 +19,7 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using DiResolver.Business.Calculation;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 
@@ -45,6 +46,10 @@ namespace DiResolver.Bootstrapper
 
             //eg Singelton: container.RegisterType<IHelloService, HelloService>(new HierarchicalLifetimeManager());
             //eg Singelton: container.RegisterInstance<IPersonService>(new PersonService(),new HierarchicalLifetimeManager());
+
+
+            container.RegisterType<IStorePrice, StorePrice>("BasicStore");
+            container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
 
             // Read RegisterType from configuration
             container.LoadConfiguration();
