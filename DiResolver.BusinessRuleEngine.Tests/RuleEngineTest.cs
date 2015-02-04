@@ -48,13 +48,40 @@ namespace DiResolver.BusinessRuleEngine.Tests
         public void Given_RuleEngine_add_Rules_Exceptet_Resolve_TheRule_Result_from_PublicPriceRule()
         {
             ICollection<IBusinessRule<IBusinessResult>> rules = new Collection<IBusinessRule<IBusinessResult>>();
+            rules.Add(new VeteranPriceRule(100, BusinessType.IsPublic));
             rules.Add(new PublicPriceRule(100, BusinessType.IsPublic));
-            rules.Add(new CompanyPriceRule(100, BusinessType.IsCompany));
+            rules.Add(new CompanyPriceRule(100, BusinessType.IsPublic));
 
             IRuleEngine<IBusinessResult> ruleEngine = new RuleEngine(rules);
 
             IBusinessResult result = ruleEngine.Execute();
             Assert.AreEqual(result.Price, 90);
+        }
+
+        [Test]
+        public void Given_RuleEngine_add_Rules_Exceptet_Resolve_TheRule_from_VeteranPriceRule()
+        {
+            ICollection<IBusinessRule<IBusinessResult>> rules = new Collection<IBusinessRule<IBusinessResult>>();
+            rules.Add(new PublicPriceRule(100, BusinessType.IsVeteran));
+            rules.Add(new VeteranPriceRule(100, BusinessType.IsVeteran));
+            rules.Add(new CompanyPriceRule(100, BusinessType.IsVeteran));
+            
+
+            IRuleEngine<IBusinessResult> ruleEngine = new RuleEngine(rules);
+
+            IBusinessResult result = ruleEngine.Execute();
+            Assert.AreEqual(result.Price, 80);
+        }
+
+        [Test]
+        public void Given_RuleEngine_add_Rules_Exceptet_Resolve_No_Matching_Rules()
+        {
+            ICollection<IBusinessRule<IBusinessResult>> rules = new Collection<IBusinessRule<IBusinessResult>>();
+            rules.Add(new PublicPriceRule(100, BusinessType.IsVeteran));
+
+            IRuleEngine<IBusinessResult> ruleEngine = new RuleEngine(rules);
+            IBusinessResult result = ruleEngine.Execute();
+            Assert.IsNull(result);
         }
     }
 }

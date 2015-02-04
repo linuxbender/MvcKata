@@ -1,4 +1,4 @@
-﻿// MvcKata DiResolver.BusinessRuleEngine
+﻿// MvcKata DiResolver.BuinessRulesTests
 // 
 // The MIT License (MIT)
 // 
@@ -18,12 +18,23 @@
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-namespace DiResolver.Business.Model.Utils
+
+using DiResolver.Business.Model.Utils;
+using DiResolver.BusinessRules.Rules;
+using NUnit.Framework;
+
+namespace DiResolver.BuinessRulesTests.Rules
 {
-    public enum BusinessType
+    [TestFixture]
+    public class VeteranPriceTests
     {
-        IsCompany = 1,
-        IsPublic = 2,
-        IsVeteran = 3
+        [Test]
+        public void Given_Rule_PublicPrice_Exceptet_20_Perscent_Discount()
+        {
+            var rule = new VeteranPriceRule(100, BusinessType.IsVeteran);
+            var result = rule.Excecute();
+
+            Assert.AreEqual(result.Price, 80);
+        }  
     }
 }

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rules\VeteranPriceRule.cs" />
     <Compile Include="Utils\BusinessResult.cs" />
     <Compile Include="Utils\IBusinessResult.cs" />
     <Compile Include="IBusinessRule.cs" />

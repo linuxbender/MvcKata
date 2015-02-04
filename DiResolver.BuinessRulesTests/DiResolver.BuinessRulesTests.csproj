@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\CompanyPriceTests.cs" />
     <Compile Include="Rules\PublicPriceTests.cs" />
+    <Compile Include="Rules\VeteranPriceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
