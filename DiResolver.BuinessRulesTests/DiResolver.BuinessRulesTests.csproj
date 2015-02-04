@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DiResolver.Business.Model\DiResolver.Business.Model.csproj">
+      <Project>{2145C5FC-5890-433C-AB5B-3857251293B8}</Project>
+      <Name>DiResolver.Business.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DiResolver.BusinessRule\DiResolver.BusinessRules.csproj">
       <Project>{E46DDA5C-037B-4165-A9EA-FFF8558EDFF1}</Project>
       <Name>DiResolver.BusinessRules</Name>

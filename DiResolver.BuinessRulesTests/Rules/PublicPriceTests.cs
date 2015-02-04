@@ -19,6 +19,7 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using DiResolver.Business.Model.Utils;
 using DiResolver.BusinessRules.Rules;
 using NUnit.Framework;
 
@@ -30,7 +31,7 @@ namespace DiResolver.BuinessRulesTests.Rules
         [Test]
         public void Given_Rule_PublicPrice_Exceptet_10_Perscent_Discount()
         {
-            var rule = new PublicPriceRule(100);
+            var rule = new PublicPriceRule(100, BusinessType.IsPublic );
             var result = rule.Excecute();
 
             Assert.AreEqual(result.Price,90);

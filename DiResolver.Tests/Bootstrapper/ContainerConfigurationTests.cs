@@ -82,7 +82,7 @@ namespace DiResolver.Tests.Bootstrapper
         }
 
         [Test]
-        public void Given_Unity_Register_Form_Xml_With_Config_Data_TypeOf_PersonService_Exceptet_Overwrite_Data_In_Second_Call()
+        public void Given_Unity_Register_From_Xml_With_Config_Data_TypeOf_PersonService_Exceptet_Overwrite_Data_In_Second_Call()
         {
             IPersonService personServiceA = _container.Resolve<PersonService>();
             personServiceA.Name = "Hans";

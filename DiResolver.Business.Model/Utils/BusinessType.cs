@@ -1,4 +1,4 @@
-﻿// MvcKata DiResolver.BusinessRules
+﻿// MvcKata DiResolver.BusinessRuleEngine
 // 
 // The MIT License (MIT)
 // 
@@ -18,23 +18,11 @@
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-using DiResolver.BusinessRules.Rules;
-
-namespace DiResolver.BusinessRules.Uitls
+namespace DiResolver.Business.Model.Utils
 {
-    public class BusinessResult : IBusinessResult
+    public enum BusinessType
     {
-        private readonly double _price;
-
-        public BusinessResult(double price)
-        {
-            _price = price;
-        }
-
-        public double Price
-        {
-            get { return _price; }
-        }
+        IsCompany = 1,
+        IsPublic = 2
     }
 }

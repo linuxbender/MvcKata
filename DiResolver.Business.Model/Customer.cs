@@ -1,4 +1,4 @@
-﻿// MvcKata DiResolver.BuinessRulesTests
+﻿// MvcKata DiResolver.Business.Model
 // 
 // The MIT License (MIT)
 // 
@@ -20,21 +20,11 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using DiResolver.Business.Model.Utils;
-using DiResolver.BusinessRules.Rules;
-using NUnit.Framework;
 
-namespace DiResolver.BuinessRulesTests.Rules
+namespace DiResolver.Business.Model
 {
-    [TestFixture]
-    public class CompanyPriceTests
+    public class Customer
     {
-        [Test]
-        public void Given_Rule_CompanyPrice_Exceptet_30_Perscent_Discount()
-        {
-            var rule = new CompanyPriceRule(100, BusinessType.IsCompany);
-            var result = rule.Excecute();
-
-            Assert.AreEqual(result.Price, 70);
-        } 
+        public BusinessType BusinessType { get; set; } 
     }
 }

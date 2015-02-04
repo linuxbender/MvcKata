@@ -21,7 +21,7 @@
 
 using System.Collections.Generic;
 using DiResolver.BusinessRules;
-using DiResolver.BusinessRules.Uitls;
+using DiResolver.BusinessRules.Utils;
 
 namespace DiResolver.BusinessRuleEngine
 {
@@ -41,6 +41,10 @@ namespace DiResolver.BusinessRuleEngine
             foreach (var rule in _rules)
             {
                 _result = rule.Excecute();
+                if (_result != null)
+                {
+                    return _result;
+                }
             }
             return _result;
         }

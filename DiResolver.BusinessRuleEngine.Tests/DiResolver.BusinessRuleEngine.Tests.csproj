@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DiResolver.Business.Model\DiResolver.Business.Model.csproj">
+      <Project>{2145C5FC-5890-433C-AB5B-3857251293B8}</Project>
+      <Name>DiResolver.Business.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DiResolver.BusinessRuleEngine\DiResolver.BusinessRuleEngine.csproj">
       <Project>{B114725B-60F7-4BFA-B82F-831B46519A9F}</Project>
       <Name>DiResolver.BusinessRuleEngine</Name>

@@ -19,23 +19,30 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-using DiResolver.BusinessRules.Uitls;
+using DiResolver.Business.Model.Utils;
+using DiResolver.BusinessRules.Utils;
 
 namespace DiResolver.BusinessRules.Rules
 {
     public class CompanyPriceRule : IBusinessRule<IBusinessResult>
     {
         private readonly double _price;
+        private readonly BusinessType _businessType;
 
-        public CompanyPriceRule(double price)
+        public CompanyPriceRule(double price, BusinessType businessType)
         {
             _price = price;
+            _businessType = businessType;
         }
 
         public IBusinessResult Excecute()
         {
-            var discount = _price * 0.3;
-            return new BusinessResult(_price - discount);
+            if(_businessType.Equals(BusinessType.IsCompany))
+            {
+                var discount = _price * 0.3;
+                return new BusinessResult(_price - discount);
+            }
+            return null;
         }
     }
 }

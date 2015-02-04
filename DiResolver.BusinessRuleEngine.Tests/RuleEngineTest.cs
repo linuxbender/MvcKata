@@ -21,9 +21,10 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using DiResolver.Business.Model.Utils;
 using DiResolver.BusinessRules;
 using DiResolver.BusinessRules.Rules;
-using DiResolver.BusinessRules.Uitls;
+using DiResolver.BusinessRules.Utils;
 using NUnit.Framework;
 
 namespace DiResolver.BusinessRuleEngine.Tests
@@ -31,17 +32,29 @@ namespace DiResolver.BusinessRuleEngine.Tests
     [TestFixture]
     public class RuleEngineTest
     {
-
         [Test]
         public void Given_RuleEngine_add_PublicPriceRule_Exceptet_Resolve_TheRule_Result()
         {
             ICollection<IBusinessRule<IBusinessResult>> rules = new Collection<IBusinessRule<IBusinessResult>>();
-            rules.Add(new PublicPriceRule(100));
+            rules.Add(new PublicPriceRule(100, BusinessType.IsPublic));
 
             IRuleEngine<IBusinessResult> ruleEngine = new RuleEngine(rules);
 
             IBusinessResult result = ruleEngine.Execute();
             Assert.AreEqual(result.Price,90);
-        } 
+        }
+
+        [Test]
+        public void Given_RuleEngine_add_Rules_Exceptet_Resolve_TheRule_Result_from_PublicPriceRule()
+        {
+            ICollection<IBusinessRule<IBusinessResult>> rules = new Collection<IBusinessRule<IBusinessResult>>();
+            rules.Add(new PublicPriceRule(100, BusinessType.IsPublic));
+            rules.Add(new CompanyPriceRule(100, BusinessType.IsCompany));
+
+            IRuleEngine<IBusinessResult> ruleEngine = new RuleEngine(rules);
+
+            IBusinessResult result = ruleEngine.Execute();
+            Assert.AreEqual(result.Price, 90);
+        }
     }
 }

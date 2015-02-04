@@ -18,10 +18,21 @@
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-namespace DiResolver.BusinessRules.Uitls
+
+namespace DiResolver.BusinessRules.Utils
 {
-    public interface IBusinessResult
+    public class BusinessResult : IBusinessResult
     {
-        double Price { get; }
+        private readonly double _price;
+
+        public BusinessResult(double price)
+        {
+            _price = price;
+        }
+
+        public double Price
+        {
+            get { return _price; }
+        }
     }
 }
