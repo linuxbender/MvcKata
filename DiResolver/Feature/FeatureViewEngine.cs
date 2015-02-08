@@ -50,21 +50,21 @@ namespace DiResolver.Feature
             "~/Views/{1}/{0}.cshtml",
             "~/Views/Shared/{0}.cshtml",
             "~/bin/Views/{1}/{0}.cshtml",
-            "~/binViews/Shared/{0}.cshtml"
+            "~/bin/Views/Shared/{0}.cshtml"
         };
 
         private readonly string[] _newMasterLocations = {
             "~/Views/{1}/{0}.cshtml",
             "~/Views/Shared/{0}.cshtml",
             "~/bin/Views/{1}/{0}.cshtml",
-            "~/binViews/Shared/{0}.cshtml"
+            "~/bin/Views/Shared/{0}.cshtml"
         };
 
         private readonly string[] _newPartialViewLocations = {
             "~/Views/{1}/{0}.cshtml",
             "~/Views/Shared/{0}.cshtml",
             "~/bin/Views/{1}/{0}.cshtml",
-            "~/binViews/Shared/{0}.cshtml"
+            "~/bin/Views/Shared/{0}.cshtml"
         };
 
         public FeatureViewEngine()
