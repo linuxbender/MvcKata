@@ -19,6 +19,7 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using System.Web.Mvc;
 using DiResolver.Business.Calculation;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
@@ -41,6 +42,9 @@ namespace DiResolver.Bootstrapper
         {
             //Set Default RegisterType
             RegisterByConvention(container);
+
+            //UnityViewActivator
+            container.RegisterType<IViewPageActivator, UnityViewActivator>();
             
             //add your custome container register hier..
 

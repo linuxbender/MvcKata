@@ -133,9 +133,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper\Bootstrapper.cs" />
     <Compile Include="Bootstrapper\ContainerConfiguration.cs" />
+    <Compile Include="Bootstrapper\UnityViewActivator.cs" />
     <Compile Include="Bootstrapper\UnityResolver.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Feature\FeatureViewEngine.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
