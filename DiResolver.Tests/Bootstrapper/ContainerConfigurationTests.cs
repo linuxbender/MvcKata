@@ -19,7 +19,14 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using DiResolver.Bootstrapper;
+using DiResolver.Business.Model.Utils;
+using DiResolver.BusinessRuleEngine;
+using DiResolver.BusinessRules;
+using DiResolver.BusinessRules.Rules;
+using DiResolver.BusinessRules.Utils;
 using DiResolver.Controllers;
 using DiResolver.Services;
 using Microsoft.Practices.Unity;
@@ -91,6 +98,22 @@ namespace DiResolver.Tests.Bootstrapper
 
             Assert.AreEqual(personServiceB.Name, "Hans");
             Assert.AreEqual(personServiceB.Vorname, "Tester");
+        }
+
+        [Test]
+        public void Given_Unity_Register_With_RuleEngineSet_Exceptet_Resolve_TheRule_Result_from_PublicPriceRule()
+        {
+            _container.RegisterType<IBusinessRule<IBusinessResult>, VeteranPriceRule>("VeteranPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+            _container.RegisterType<IBusinessRule<IBusinessResult>, PublicPriceRule>("PublicPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+            _container.RegisterType<IBusinessRule<IBusinessResult>, CompanyPriceRule>("CompanyPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+            _container.RegisterType<ICollection<IBusinessRule<IBusinessResult>>, IBusinessRule<IBusinessResult>[]>("ruleSet");
+            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngine", new InjectionConstructor(_container.Resolve<ICollection<IBusinessRule<IBusinessResult>>>("ruleSet")));
+
+            var ruleEngine = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngine");
+
+            IBusinessResult result = ruleEngine.Execute();
+
+            Assert.AreEqual(result.Price, 90);
         }
     }
 }
