@@ -107,13 +107,43 @@ namespace DiResolver.Tests.Bootstrapper
             _container.RegisterType<IBusinessRule<IBusinessResult>, PublicPriceRule>("PublicPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
             _container.RegisterType<IBusinessRule<IBusinessResult>, CompanyPriceRule>("CompanyPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
             _container.RegisterType<ICollection<IBusinessRule<IBusinessResult>>, IBusinessRule<IBusinessResult>[]>("ruleSet");
-            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngine", new InjectionConstructor(_container.Resolve<ICollection<IBusinessRule<IBusinessResult>>>("ruleSet")));
+            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngine", new InjectionConstructor(new ResolvedParameter<ICollection<IBusinessRule<IBusinessResult>>>("ruleSet")));
 
             var ruleEngine = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngine");
 
-            IBusinessResult result = ruleEngine.Execute();
+            IBusinessResult result = ruleEngine.Execute();                       
 
             Assert.AreEqual(result.Price, 90);
+        }
+
+        [Test]
+        public void Given_Unity_Register_With_RuleEngineClientA_And_RuleEngineClientB_Exceptet_Resolve_PublicPriceRule()
+        {
+            _container.RegisterType<IBusinessRule<IBusinessResult>, VeteranPriceRule>("VeteranPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+            _container.RegisterType<IBusinessRule<IBusinessResult>, PublicPriceRule>("PublicPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+            _container.RegisterType<IBusinessRule<IBusinessResult>, CompanyPriceRule>("CompanyPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
+
+            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngineClientA", new InjectionConstructor(new Collection<IBusinessRule<IBusinessResult>>()
+            {
+                _container.Resolve<IBusinessRule<IBusinessResult>>("VeteranPriceRule"),
+                _container.Resolve<IBusinessRule<IBusinessResult>>("PublicPriceRule")
+            }));
+
+            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngineClientB", new InjectionConstructor(new Collection<IBusinessRule<IBusinessResult>>()
+            {
+                _container.Resolve<IBusinessRule<IBusinessResult>>("VeteranPriceRule"),
+                _container.Resolve<IBusinessRule<IBusinessResult>>("PublicPriceRule"),
+                _container.Resolve<IBusinessRule<IBusinessResult>>("CompanyPriceRule")
+            }));
+
+            var ruleEngineClientA = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngineClientA");
+            var ruleEngineClientB = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngineClientB");
+
+            var resultA = ruleEngineClientA.Execute();
+            var resultB = ruleEngineClientB.Execute();
+
+            Assert.AreEqual(resultA.Price, 90);
+            Assert.AreEqual(resultB.Price, 90);
         }
     }
 }
