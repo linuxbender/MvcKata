@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Business", "03 Business"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Business.Model", "DiResolver.Business.Model\DiResolver.Business.Model.csproj", "{2145C5FC-5890-433C-AB5B-3857251293B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Provider", "DiResolver.Provider\DiResolver.Provider.csproj", "{AB362212-192B-40AE-8496-4FD5DEB97988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{2145C5FC-5890-433C-AB5B-3857251293B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2145C5FC-5890-433C-AB5B-3857251293B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2145C5FC-5890-433C-AB5B-3857251293B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB362212-192B-40AE-8496-4FD5DEB97988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB362212-192B-40AE-8496-4FD5DEB97988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB362212-192B-40AE-8496-4FD5DEB97988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB362212-192B-40AE-8496-4FD5DEB97988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +98,6 @@ Global
 		{E46DDA5C-037B-4165-A9EA-FFF8558EDFF1} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
 		{32E205E4-2ED3-4009-A764-7BC452BE8FDA} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
 		{2145C5FC-5890-433C-AB5B-3857251293B8} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
+		{AB362212-192B-40AE-8496-4FD5DEB97988} = {DF097F8E-8503-4035-ADF7-1D5F855D51B5}
 	EndGlobalSection
 EndGlobal

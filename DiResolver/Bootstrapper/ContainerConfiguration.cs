@@ -21,8 +21,10 @@
 
 using System.Web.Mvc;
 using DiResolver.Business.Calculation;
+using DiResolver.Provider;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Microsoft.Practices.Unity.InterceptionExtension;
 
 namespace DiResolver.Bootstrapper
 {
@@ -51,8 +53,7 @@ namespace DiResolver.Bootstrapper
             //eg Singelton: container.RegisterType<IHelloService, HelloService>(new HierarchicalLifetimeManager());
             //eg Singelton: container.RegisterInstance<IPersonService>(new PersonService(),new HierarchicalLifetimeManager());
 
-
-            container.RegisterType<IStorePrice, StorePrice>("BasicStore");
+            container.RegisterType<IStorePrice, StorePrice>("BasicStore",new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
             container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
 
             // Read RegisterType from configuration
@@ -70,6 +71,8 @@ namespace DiResolver.Bootstrapper
         /// <param name="container">IUnityContainer</param>
         private static void RegisterByConvention(IUnityContainer container)
         {
+            container.AddNewExtension<Interception>();
+
             container.RegisterTypes(AllClasses.FromLoadedAssemblies(),
                 WithMappings.FromMatchingInterface,
                 WithName.Default,
