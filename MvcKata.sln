@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Business.Model",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Provider", "DiResolver.Provider\DiResolver.Provider.csproj", "{AB362212-192B-40AE-8496-4FD5DEB97988}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Business.Bpmn2Test", "DiResolver.Business.Bpmn2Test\DiResolver.Business.Bpmn2Test.csproj", "{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiResolver.Business.Bpmn2", "DiResolver.Business.Bpmn2\DiResolver.Business.Bpmn2.csproj", "{93836556-540D-4545-91F6-26F3B3C1A341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,14 @@ Global
 		{AB362212-192B-40AE-8496-4FD5DEB97988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB362212-192B-40AE-8496-4FD5DEB97988}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB362212-192B-40AE-8496-4FD5DEB97988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93836556-540D-4545-91F6-26F3B3C1A341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93836556-540D-4545-91F6-26F3B3C1A341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93836556-540D-4545-91F6-26F3B3C1A341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93836556-540D-4545-91F6-26F3B3C1A341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +111,7 @@ Global
 		{32E205E4-2ED3-4009-A764-7BC452BE8FDA} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
 		{2145C5FC-5890-433C-AB5B-3857251293B8} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
 		{AB362212-192B-40AE-8496-4FD5DEB97988} = {DF097F8E-8503-4035-ADF7-1D5F855D51B5}
+		{6F6C0F4C-C595-4CA4-860D-CFB07B1638B4} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
+		{93836556-540D-4545-91F6-26F3B3C1A341} = {4AEEE4C8-CC37-49AE-BB15-B05F625F284D}
 	EndGlobalSection
 EndGlobal
