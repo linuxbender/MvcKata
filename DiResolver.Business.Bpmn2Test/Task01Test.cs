@@ -41,5 +41,11 @@ namespace DiResolver.Business.Bpmn2Test
             var result = WorkflowInvoker.Invoke(new Demo01(),list);
             Assert.AreEqual(result.FirstOrDefault().Value.ToString(), "Hallo Dani");
         }
+
+        [Test]
+        public void Run_Task01_Expect_Hallo_Dani_()
+        {
+
+        }
     }
 }

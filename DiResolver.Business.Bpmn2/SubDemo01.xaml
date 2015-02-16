@@ -1,0 +1,211 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="DiResolver.Business.Bpmn2.SubDemo01" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:bna="clr-namespace:BPM.NET.Activities;assembly=BPM.NET.Activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <bna:Process DisplayName="SubDemo01">
+    <bna:Process.Swimlanes>
+      <bna:Swimlane Color="{x:Null}" DisplayName="Swimlane">
+        <bna:Swimlane.Activities>
+          <bna:Start DisplayName="Start">
+            <bna:Start.Transitions>
+              <bna:Transition Condition="{x:Null}" DisplayName="">
+                <bna:Transition.Target>
+                  <bna:Split x:Name="__ReferenceID1" DisplayName="Split">
+                    <bna:Split.Transitions>
+                      <bna:Transition Condition="{x:Null}" DisplayName="">
+                        <bna:Transition.Target>
+                          <bna:State Color="{x:Null}" x:Name="__ReferenceID2" DisplayName="State">
+                            <bna:State.Transitions>
+                              <bna:Transition Condition="{x:Null}" DisplayName="">
+                                <bna:Transition.Target>
+                                  <bna:Join x:Name="__ReferenceID0" DisplayName="Join">
+                                    <bna:Join.Transitions>
+                                      <bna:Transition Condition="{x:Null}" DisplayName="">
+                                        <bna:Transition.Target>
+                                          <bna:End x:Name="__ReferenceID4" DisplayName="End" sap2010:WorkflowViewState.IdRef="End_1" />
+                                        </bna:Transition.Target>
+                                        <sap2010:WorkflowViewState.IdRef>Transition_1</sap2010:WorkflowViewState.IdRef>
+                                      </bna:Transition>
+                                    </bna:Join.Transitions>
+                                    <sap2010:WorkflowViewState.IdRef>Join_1</sap2010:WorkflowViewState.IdRef>
+                                  </bna:Join>
+                                </bna:Transition.Target>
+                                <sap2010:WorkflowViewState.IdRef>Transition_2</sap2010:WorkflowViewState.IdRef>
+                              </bna:Transition>
+                            </bna:State.Transitions>
+                            <sap2010:WorkflowViewState.IdRef>State_1</sap2010:WorkflowViewState.IdRef>
+                          </bna:State>
+                        </bna:Transition.Target>
+                        <sap2010:WorkflowViewState.IdRef>Transition_3</sap2010:WorkflowViewState.IdRef>
+                      </bna:Transition>
+                      <bna:Transition Condition="{x:Null}" DisplayName="">
+                        <bna:Transition.Target>
+                          <bna:State Color="{x:Null}" x:Name="__ReferenceID3" DisplayName="State">
+                            <bna:State.Transitions>
+                              <bna:Transition Condition="{x:Null}" Target="{x:Reference __ReferenceID0}" DisplayName="" sap2010:WorkflowViewState.IdRef="Transition_4" />
+                            </bna:State.Transitions>
+                            <sap2010:WorkflowViewState.IdRef>State_2</sap2010:WorkflowViewState.IdRef>
+                          </bna:State>
+                        </bna:Transition.Target>
+                        <sap2010:WorkflowViewState.IdRef>Transition_5</sap2010:WorkflowViewState.IdRef>
+                      </bna:Transition>
+                    </bna:Split.Transitions>
+                    <sap2010:WorkflowViewState.IdRef>Split_1</sap2010:WorkflowViewState.IdRef>
+                  </bna:Split>
+                </bna:Transition.Target>
+                <sap2010:WorkflowViewState.IdRef>Transition_6</sap2010:WorkflowViewState.IdRef>
+              </bna:Transition>
+            </bna:Start.Transitions>
+            <sap2010:WorkflowViewState.IdRef>Start_1</sap2010:WorkflowViewState.IdRef>
+          </bna:Start>
+          <x:Reference>__ReferenceID1</x:Reference>
+          <x:Reference>__ReferenceID2</x:Reference>
+          <x:Reference>__ReferenceID3</x:Reference>
+          <x:Reference>__ReferenceID0</x:Reference>
+          <x:Reference>__ReferenceID4</x:Reference>
+        </bna:Swimlane.Activities>
+        <sap2010:WorkflowViewState.IdRef>Swimlane_1</sap2010:WorkflowViewState.IdRef>
+      </bna:Swimlane>
+    </bna:Process.Swimlanes>
+    <sap2010:WorkflowViewState.IdRef>Process_1</sap2010:WorkflowViewState.IdRef>
+    <sads:DebugSymbol.Symbol>dzdDOlxnaXRcTXZjS2F0YVxEaVJlc29sdmVyLkJ1c2luZXNzLkJwbW4yXFN1YkRlbW8wMS54YW1sAR8DYhECAQE=</sads:DebugSymbol.Symbol>
+  </bna:Process>
+  <sap2010:WorkflowViewState.IdRef>DiResolver.Business.Bpmn2.SubDemo01_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="End_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">530,62.4</av:Point>
+            <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">510,100 530,100</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Join_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">450,62.4</av:Point>
+            <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">420.8,158.4 480,158.4 480,137.6</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="State_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">299.2,103.2</av:Point>
+            <av:Size x:Key="ShapeSize">121.6,73.6</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">230,100 269.2,100 269.2,140 299.2,140</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">420.8,40 480,40 480,62.4</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="State_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">299.2,3.2</av:Point>
+            <av:Size x:Key="ShapeSize">121.6,73.6</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">230,81.2 260,81.2 260,58.4 299.2,58.4</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Split_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">170,62.4</av:Point>
+            <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Transition_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:PointCollection x:Key="ConnectorLocation">100,100.1 110,100.1 110,100 170,100</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Start_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">40,62.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Swimlane_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">0,2</av:Point>
+            <x:Double x:Key="SwimlaneHeight">194.8</x:Double>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Process_1" sap:VirtualizedContainerService.HintSize="617.6,235.2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Double x:Key="ProcessContainerWidth">600</x:Double>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DiResolver.Business.Bpmn2.SubDemo01_1" sap:VirtualizedContainerService.HintSize="657.6,315.2" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
