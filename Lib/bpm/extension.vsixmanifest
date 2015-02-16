@@ -1,0 +1,21 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="f207c299-d149-4559-b2cc-620bb71ea4f6" Version="2.0" Language="en-US" Publisher="BPM4NET" />
+    <DisplayName>BPM.NET for Visual Studio 2013</DisplayName>
+    <Description>Workflow Plug-in for Designing and Building Business Process Oriented Systems.</Description>
+    <MoreInfo>http://www.bpm4net.com</MoreInfo>
+    <GettingStartedGuide>http://www.bpm4net.com/documentation.html</GettingStartedGuide>
+    <Icon>Process.png</Icon>
+    <PreviewImage>Preview2013.png</PreviewImage>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="12.0" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="4.5" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.12.0" DisplayName="Visual Studio MPF 12.0" Version="12.0" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="BPM.NET.Activities.Pack2013.pkgdef" />
+  </Assets>
+</PackageManifest>

@@ -31,7 +31,7 @@ namespace DiResolver.Business.Bpmn2Test
     public class Task01Test
     {
         [Test]
-        public void Run_Task01_Expect_Hell_Dani()
+        public void Run_Task01_Expect_Hallo_Dani()
         {
             var list = new Dictionary<string, object>
             {

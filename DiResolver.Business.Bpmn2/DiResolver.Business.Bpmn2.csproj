@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BPM.NET.Activities">
-      <HintPath>..\..\..\Users\glenn\AppData\Local\Microsoft\VisualStudio\12.0\Extensions\zoxgi1yv.sh2\BPM.NET.Activities.DLL</HintPath>
+    <Reference Include="BPM.NET.Activities, Version=2.0.0.0, Culture=neutral, PublicKeyToken=20ceef4aa84e8ac2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\bpm\BPM.NET.Activities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

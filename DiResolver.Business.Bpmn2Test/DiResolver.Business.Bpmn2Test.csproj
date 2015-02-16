@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BPM.NET.Activities">
-      <HintPath>..\..\..\Users\glenn\AppData\Local\Microsoft\VisualStudio\12.0\Extensions\zoxgi1yv.sh2\BPM.NET.Activities.DLL</HintPath>
+      <HintPath>..\Lib\bpm\BPM.NET.Activities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework">
