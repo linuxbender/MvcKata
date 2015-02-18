@@ -190,6 +190,14 @@ ModelManifest.xml
 
 # bower
 bower_modules
+Vendor/Bower/
+
+# Npm
+node_module
+Vendor/Npm/
+
+# Npm
+Vendor/
 
 # tmp folder
 tmp

@@ -1,0 +1,32 @@
+{
+  "name": "GruntAutomation",
+  "version": "0.0.1",
+  "homepage": "https://github.com/linuxbender/MvcKata",
+  "authors": [
+    "daniel glenn"
+  ],
+  "description": "Gunt Automation Project",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Vendor/Bower",
+    "Vendor/Npm",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.3.13",
+    "angular-route": "~1.3.13",
+    "angular-sanitize": "~1.3.13",
+    "lodash": "~3.2.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.13"
+  }
+}
