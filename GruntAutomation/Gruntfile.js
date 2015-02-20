@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 		app: require("./bower.json").appPath,
 		style: "Styles",
 		tmp:"tmp",
-		test:"test"
+		test:"test",
+		content: "Content"
 	};
 
 	require("load-grunt-config")(grunt,{

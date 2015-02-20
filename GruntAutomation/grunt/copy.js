@@ -5,7 +5,7 @@ module.exports = function(grunt, options) {
             files: [{
                 expand: true,
                 src: "<%= app.tmp %>/css/*.min.css",
-                dest: "<%= app.app %>/assets/css/",
+                dest: "<%= app.content %>/",
                 flatten: true,
                 filter: "isFile"
             }]
