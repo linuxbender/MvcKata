@@ -138,6 +138,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Gruntfile.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -149,6 +150,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="package.json" />
+    <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
     <None Include="Scripts\jquery-2.1.3-vsdoc.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -176,8 +180,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Styles\app.scss" />
+    <Content Include="Styles\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
