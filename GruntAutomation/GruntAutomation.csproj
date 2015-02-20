@@ -139,6 +139,14 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Gruntfile.js" />
+    <Content Include="grunt\autoprefixer.js" />
+    <Content Include="grunt\clean.js" />
+    <Content Include="grunt\copy.js" />
+    <Content Include="grunt\cssmin.js" />
+    <Content Include="grunt\jshint.js" />
+    <Content Include="grunt\karma.js" />
+    <Content Include="grunt\sass.js" />
+    <Content Include="grunt\watch.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
