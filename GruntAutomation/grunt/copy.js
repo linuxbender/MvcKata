@@ -4,10 +4,10 @@ module.exports = function(grunt, options) {
         main: {
             files: [{
                 expand: true,
-                src: '<%= app.tmp %>/css/*.min.css',
-                dest: '<%= app.app %>/assets/css/',
+                src: "<%= app.tmp %>/css/*.min.css",
+                dest: "<%= app.app %>/assets/css/",
                 flatten: true,
-                filter: 'isFile',
+                filter: "isFile"
             }]
         }
     };
