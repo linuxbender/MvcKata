@@ -1,22 +1,22 @@
 // Karma configuration
 // http://karma-runner.github.io/0.12/config/configuration-file.html
 module.exports = function(config) {
-    'use strict';
+    "use strict";
     config.set({
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
         // base path, that will be used to resolve files and exclude
-        basePath: '../',
+        basePath: "../",
         // testing framework to use (jasmine/mocha/qunit/...)
-        frameworks: ['jasmine'],
+        frameworks: ["jasmine"],
         // list of files / patterns to load in the browser
         files: [
-            'test/specs/app/**/*.js'
+            "test/specs/app/**/*.js"
         ],
         // test results reporter to use
         // possible values: 'dots', 'progress', 'coverage'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ["progress"],
         // list of files / patterns to exclude
         exclude: [],
         // web server port
@@ -30,13 +30,13 @@ module.exports = function(config) {
         // - PhantomJS
         // - IE (only Windows)
         browsers: [
-            'PhantomJS'
+            "PhantomJS"
         ],
         // Which plugins to enable
         plugins: [
-            'karma-phantomjs-launcher',
-            'karma-jasmine',
-            'karma-mocha'
+            "karma-phantomjs-launcher",
+            "karma-jasmine",
+            "karma-mocha"
         ],
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
@@ -44,7 +44,7 @@ module.exports = function(config) {
         colors: true,
         // level of logging
         // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-        logLevel: config.LOG_INFO,
+        logLevel: config.LOG_INFO
         // Uncomment the following lines if you are using grunt's server to run the tests
         // proxies: {
         // '/': 'http://localhost:9000/'
