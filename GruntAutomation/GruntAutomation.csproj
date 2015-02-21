@@ -199,6 +199,7 @@
     <Content Include="Styles\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Core\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
