@@ -1,5 +1,5 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using DiResolver.Filter;
 
 namespace DiResolver
 {
@@ -8,6 +8,7 @@ namespace DiResolver
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(DependencyResolver.Current.GetService<DebugFilter>());
         }
     }
 }

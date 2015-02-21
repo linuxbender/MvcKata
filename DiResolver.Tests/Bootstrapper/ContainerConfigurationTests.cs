@@ -19,6 +19,8 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+using System.Configuration;
+using System.Web.Mvc;
 using DiResolver.Controllers;
 using DiResolver.Services;
 using Microsoft.Practices.Unity;
@@ -75,6 +77,30 @@ namespace DiResolver.Tests.Bootstrapper
 
             Assert.AreEqual(personServiceB.Name, "Hans");
             Assert.AreEqual(personServiceB.Vorname, "Tester");
+        }
+
+        [Test]
+        public void Given_Unity_Register_Type_As_Singelton_Exceptet_to_return_PersonService()
+        {
+            Container.RegisterInstance(typeof(IPersonService),new PersonService());
+            var resultA = Container.Resolve<PersonService>();
+            var resultB = Container.Resolve<PersonService>();
+            Assert.AreEqual(resultA.GetHashCode(), resultB.GetHashCode());
+        }
+
+        [Test]
+        public void Given_Unity_Register_Type_Exceptet_to_Resolve_DebugService_From_The_AppSettings_ServiceType_Name()
+        {
+            Container.RegisterType<IHelloService, HelloService>("StandardService");
+            Container.RegisterType<IHelloService, HelloDebugService>("DebugService");
+
+            var serviceType = ConfigurationManager.AppSettings["ServiceType"];
+            Container.RegisterType<Controller, HomeController>(new InjectionConstructor(Container.Resolve<IHelloService>(serviceType)));
+
+            var controller = Container.Resolve<HomeController>();
+            var response = (ViewResult) controller.Index();
+
+            Assert.AreEqual(response.ViewBag.Message, "Debug, Nicole Tester!");
         }
     }
 }
