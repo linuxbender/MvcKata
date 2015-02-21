@@ -7,10 +7,10 @@
             /*
             Feature areas
             */
-            "prototype.reportBuilder",
+            "feature.reportBuilder",
             /*
             Mock Data for local DEV - without a server
             */
-            "reportBuilderServiceMock"
+            "feature.reportBuilder.service.mock"
         ]);
 })();

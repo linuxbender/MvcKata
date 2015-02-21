@@ -1,0 +1,48 @@
+<h2>Mocking Data Prototype</h2>
+<p>This is a Report Builder Example:</p>
+
+<form role="form" class="form-inline">
+    <fieldset>
+        <div class="form-group">
+            <label for="disabledSelect">Select your Report Source</label>
+            <select data-ng-change="vm.getTableMetaData(vm.tableSelectedOption.id)" id="disabledSelect" class="form-control btn-success" data-ng-model="vm.tableSelectedOption" data-ng-options="item.tableName for item in vm.tableList">
+                <option value="">Select Report Source</option>
+            </select>
+        </div>
+        <div class="form-group animate-hide" data-ng-hide="vm.disableRuleTemplate">
+            <label for="newRule">New Rule:</label>
+            <button id="newRule" class="btn btn-success btn-xs">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;add
+            </button>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="form-group">
+
+        </div>
+    </fieldset>
+</form>
+
+<h4>Debug</h4>
+<p>Selected report source table: {{vm.tableSelectedOption}}</p>
+<p>Selected tableMetaData: {{vm.tableMetaData}}</p>
+<p>Disable Rule Template: {{vm.disableRuleTemplate}}</p>
+
+
+<form class="form-inline" role="form">
+    <div class="row">
+        <div class="form-group col-xs-3">
+            <select name="" class="form-control btn-success">
+                <option value="">Select your Column</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-3">
+          <input type="text" class="form-control" placeholder="">
+        </div>
+        <div class="form-group col-xs-3">
+        <label>demo</label>
+          <input type="checkbox" class="form-control">
+        </div>
+        <div class="form-group col-xs-3">D</div>
+    </div>
+</form>
