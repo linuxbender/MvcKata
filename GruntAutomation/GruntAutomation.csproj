@@ -132,6 +132,9 @@
   <ItemGroup>
     <Content Include="App\app.module.js" />
     <Content Include="App\app.routes.js" />
+    <Content Include="App\Core\core.config.js" />
+    <Content Include="App\Core\core.constants.js" />
+    <Content Include="App\Core\core.module.js" />
     <Content Include="Content\app.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -199,7 +202,6 @@
     <Content Include="Styles\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Core\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
