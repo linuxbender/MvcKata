@@ -29,7 +29,7 @@ using NUnit.Framework;
 namespace DiResolver.Tests.Bootstrapper
 {
     [TestFixture]
-    public class ContainerConfigActionFilterTests : BaseConfig
+    public class ContainerConfigFilterTests : BaseConfig
     {
         [Test]
         public void Given_Unity_Register_FilterProvider_With_ActionFilter_Exceptet_To_Resolve_DebugFilter()
@@ -44,5 +44,6 @@ namespace DiResolver.Tests.Bootstrapper
             Assert.AreEqual(filterResult.Count(), 1);
             Assert.AreEqual(providerResult.Count(), 1);
         }
+         
     }
 }
