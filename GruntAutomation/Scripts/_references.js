@@ -23,3 +23,5 @@
 /// <reference path="../app/core/core.module.js" />
 /// <reference path="../app/core/core.constants.js" />
 /// <reference path="../app/core/core.config.js" />
+/// <reference path="../app/common/localStorage/localStorage.module.js" />
+/// <reference path="../app/common/localStorage/localStorage.service.js" />

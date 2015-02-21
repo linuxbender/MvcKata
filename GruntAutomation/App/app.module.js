@@ -4,7 +4,6 @@
     angular
         .module("app", [
             "app.core",
-            "layout",
             /*
             Feature areas
             */

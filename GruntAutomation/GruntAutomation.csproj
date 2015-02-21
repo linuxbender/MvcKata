@@ -132,6 +132,8 @@
   <ItemGroup>
     <Content Include="App\app.module.js" />
     <Content Include="App\app.routes.js" />
+    <Content Include="App\common\localStorage\localStorage.module.js" />
+    <Content Include="App\common\localStorage\localStorage.service.js" />
     <Content Include="App\Core\core.config.js" />
     <Content Include="App\Core\core.constants.js" />
     <Content Include="App\Core\core.module.js" />

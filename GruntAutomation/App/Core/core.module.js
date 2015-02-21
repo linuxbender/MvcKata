@@ -5,16 +5,12 @@
         /*
         * Angular modules
         */
-        "ngAnimate",
-        "ngRoute",
         "ngSanitize",
+        "ngRoute",
+        "ngAnimate",
         /*
         * common modules
         */
-        "common.logger",
-        "common.exception",
-        "common.offline",
-        "common.busyIndicator",
         "common.localStorage"
         ]);
 })();
