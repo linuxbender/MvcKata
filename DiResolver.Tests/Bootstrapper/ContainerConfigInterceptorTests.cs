@@ -27,7 +27,7 @@ using NUnit.Framework;
 
 namespace DiResolver.Tests.Bootstrapper
 {
-    public class ContainerConfigInterceptor : BaseConfig
+    public class ContainerConfigInterceptorTests : BaseConfig
     {
         [Test]
         public void Given_Unity_Register_AuditProvider_Exceptet_To_Intercept_Method_Call()
