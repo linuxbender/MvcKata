@@ -18,3 +18,5 @@
 /// <reference path="../grunt/watch.js" />
 /// <reference path="../test/karma.conf.js" />
 /// <reference path="../test/specs/app/app.spec.js" />
+/// <reference path="../app/app.module.js" />
+/// <reference path="../app/app.routes.js" />
