@@ -20,8 +20,6 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using System.Web.Mvc;
-using DiResolver.Business.Calculation;
-using DiResolver.Provider;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension;
@@ -53,8 +51,8 @@ namespace DiResolver.Bootstrapper
             //eg Singelton: container.RegisterType<IHelloService, HelloService>(new HierarchicalLifetimeManager());
             //eg Singelton: container.RegisterInstance<IPersonService>(new PersonService(),new HierarchicalLifetimeManager());
 
-            container.RegisterType<IStorePrice, StorePrice>("BasicStore",new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
-            container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
+            //container.RegisterType<IStorePrice, StorePrice>("BasicStore",new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
+            //container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
 
             // Read RegisterType from configuration
             container.LoadConfiguration();

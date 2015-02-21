@@ -19,14 +19,6 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using DiResolver.Bootstrapper;
-using DiResolver.Business.Model.Utils;
-using DiResolver.BusinessRuleEngine;
-using DiResolver.BusinessRules;
-using DiResolver.BusinessRules.Rules;
-using DiResolver.BusinessRules.Utils;
 using DiResolver.Controllers;
 using DiResolver.Services;
 using Microsoft.Practices.Unity;
@@ -35,22 +27,8 @@ using NUnit.Framework;
 namespace DiResolver.Tests.Bootstrapper
 {
     [TestFixture]
-    public class ContainerConfigurationTests
+    public class ContainerConfigurationTests : BaseConfig
     {
-        private IUnityContainer _container;
-
-        [SetUp]
-        public void Setup()
-        {
-            _container = new UnityContainer();
-            ContainerConfiguration.RegisterTypes(_container);
-        }
-
-        [TearDown]
-        public void Cleanup()
-        {
-            _container.Dispose();
-        }
 
         [Test]
         public void Given_Unity_Config_From_Convention_TypeOf_HelloController_Exceptet_Resolve_New_Instance()
@@ -59,7 +37,6 @@ namespace DiResolver.Tests.Bootstrapper
 
             Assert.IsNotNull(controller);
         }
-
 
         [Test]
         public void Given_Unity_Config_From_Convention_TypeOf_HelloController_Exceptet_Resolve_New_Instance_Per_Call()
@@ -98,52 +75,6 @@ namespace DiResolver.Tests.Bootstrapper
 
             Assert.AreEqual(personServiceB.Name, "Hans");
             Assert.AreEqual(personServiceB.Vorname, "Tester");
-        }
-
-        [Test]
-        public void Given_Unity_Register_With_RuleEngineSet_Exceptet_Resolve_TheRule_Result_from_PublicPriceRule()
-        {
-            _container.RegisterType<IBusinessRule<IBusinessResult>, VeteranPriceRule>("VeteranPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-            _container.RegisterType<IBusinessRule<IBusinessResult>, PublicPriceRule>("PublicPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-            _container.RegisterType<IBusinessRule<IBusinessResult>, CompanyPriceRule>("CompanyPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-            _container.RegisterType<ICollection<IBusinessRule<IBusinessResult>>, IBusinessRule<IBusinessResult>[]>("ruleSet");
-            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngine", new InjectionConstructor(new ResolvedParameter<ICollection<IBusinessRule<IBusinessResult>>>("ruleSet")));
-
-            var ruleEngine = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngine");
-
-            IBusinessResult result = ruleEngine.Execute();                       
-
-            Assert.AreEqual(result.Price, 90);
-        }
-
-        [Test]
-        public void Given_Unity_Register_With_RuleEngineClientA_And_RuleEngineClientB_Exceptet_Resolve_PublicPriceRule()
-        {
-            _container.RegisterType<IBusinessRule<IBusinessResult>, VeteranPriceRule>("VeteranPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-            _container.RegisterType<IBusinessRule<IBusinessResult>, PublicPriceRule>("PublicPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-            _container.RegisterType<IBusinessRule<IBusinessResult>, CompanyPriceRule>("CompanyPriceRule", new InjectionConstructor((double)100, BusinessType.IsPublic));
-
-            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngineClientA", new InjectionConstructor(new Collection<IBusinessRule<IBusinessResult>>()
-            {
-                _container.Resolve<IBusinessRule<IBusinessResult>>("VeteranPriceRule"),
-                _container.Resolve<IBusinessRule<IBusinessResult>>("PublicPriceRule")
-            }));
-
-            _container.RegisterType<IRuleEngine<IBusinessResult>, RuleEngine>("RuleEngineClientB", new InjectionConstructor(new Collection<IBusinessRule<IBusinessResult>>()
-            {
-                _container.Resolve<IBusinessRule<IBusinessResult>>("VeteranPriceRule"),
-                _container.Resolve<IBusinessRule<IBusinessResult>>("PublicPriceRule"),
-                _container.Resolve<IBusinessRule<IBusinessResult>>("CompanyPriceRule")
-            }));
-
-            var ruleEngineClientA = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngineClientA");
-            var ruleEngineClientB = _container.Resolve<IRuleEngine<IBusinessResult>>("RuleEngineClientB");
-
-            var resultA = ruleEngineClientA.Execute();
-            var resultB = ruleEngineClientB.Execute();
-
-            Assert.AreEqual(resultA.Price, 90);
-            Assert.AreEqual(resultB.Price, 90);
         }
     }
 }
