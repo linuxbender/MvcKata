@@ -33,7 +33,7 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Config_From_Convention_TypeOf_HelloController_Exceptet_Resolve_New_Instance()
         {
-            var controller = Container.Resolve<HomeController>();
+            var controller = _container.Resolve<HomeController>();
 
             Assert.IsNotNull(controller);
         }
@@ -41,8 +41,8 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Config_From_Convention_TypeOf_HelloController_Exceptet_Resolve_New_Instance_Per_Call()
         {
-            var controllerA = Container.Resolve<HomeController>();
-            var controllerB = Container.Resolve<HomeController>();
+            var controllerA = _container.Resolve<HomeController>();
+            var controllerB = _container.Resolve<HomeController>();
 
             Assert.AreNotEqual(controllerA.GetHashCode(), controllerB.GetHashCode());
         }
@@ -50,8 +50,8 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Config_From_Xml_TypeOf_PersonService_ExceptetTo_Resolve_Service_As_Singelton_Per_Call()
         {
-            IPersonService personServiceA = Container.Resolve<PersonService>();
-            IPersonService personServiceB = Container.Resolve<PersonService>();
+            IPersonService personServiceA = _container.Resolve<PersonService>();
+            IPersonService personServiceB = _container.Resolve<PersonService>();
 
             Assert.AreEqual(personServiceA.GetHashCode(), personServiceB.GetHashCode());
         }
@@ -59,7 +59,7 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Config_From_Xml_With_Initial_Data_TypeOf_PersonService_ExceptetTo_Resolve_Service_Initial_Data()
         {
-            IPersonService personServiceA = Container.Resolve<PersonService>();
+            IPersonService personServiceA = _container.Resolve<PersonService>();
 
             Assert.AreEqual(personServiceA.Name,"Alex");
             Assert.AreEqual(personServiceA.Vorname, "Muster");
@@ -68,10 +68,10 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Register_From_Xml_With_Config_Data_TypeOf_PersonService_Exceptet_Overwrite_Data_In_Second_Call()
         {
-            IPersonService personServiceA = Container.Resolve<PersonService>();
+            IPersonService personServiceA = _container.Resolve<PersonService>();
             personServiceA.Name = "Hans";
             personServiceA.Vorname = "Tester";
-            IPersonService personServiceB = Container.Resolve<PersonService>();
+            IPersonService personServiceB = _container.Resolve<PersonService>();
 
             Assert.AreEqual(personServiceB.Name, "Hans");
             Assert.AreEqual(personServiceB.Vorname, "Tester");

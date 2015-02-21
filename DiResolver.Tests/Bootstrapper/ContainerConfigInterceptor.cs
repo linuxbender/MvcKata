@@ -32,9 +32,9 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Register_AuditProvider_Exceptet_To_Intercept_Method_Call()
         {
-            Container.RegisterType<IStorePrice, StorePrice>("Demo12", new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
+            _container.RegisterType<IStorePrice, StorePrice>("Demo12", new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
 
-            IStorePrice storePriceService = Container.Resolve<StorePrice>();
+            IStorePrice storePriceService = _container.Resolve<StorePrice>();
             var result = storePriceService.GetPrice(20);
             Assert.AreEqual(result, 21.6);
         }
