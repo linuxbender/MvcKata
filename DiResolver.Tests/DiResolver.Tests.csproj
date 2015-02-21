@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper\BaseConfig.cs" />
     <Compile Include="Bootstrapper\ContainerConfigDecoratorTests.cs" />
+    <Compile Include="Bootstrapper\ContainerConfigFilterTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigInterceptor.cs" />
     <Compile Include="Bootstrapper\ContainerConfigRuleEngineTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigurationTests.cs" />
