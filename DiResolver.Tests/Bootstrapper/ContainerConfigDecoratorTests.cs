@@ -35,14 +35,14 @@ namespace DiResolver.Tests.Bootstrapper
         [Test]
         public void Given_Unity_Register_StorePrice_Service_Exceptet_Resolve_StorePrice_Decorator()
         {
-            _container.RegisterType<IStorePrice, StorePrice>("BasicStore", new Interceptor<InterfaceInterceptor>(),new InterceptionBehavior<AuditProvider>());
-            _container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
+            Container.RegisterType<IStorePrice, StorePrice>("BasicStore", new Interceptor<InterfaceInterceptor>(),new InterceptionBehavior<AuditProvider>());
+            Container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
 
-            IStorePrice storePriceService = _container.Resolve<DiscountTwentyPercent>();
+            IStorePrice storePriceService = Container.Resolve<DiscountTwentyPercent>();
             var result = storePriceService.GetPrice(20);
             Assert.AreEqual(result, 17.28);
 
-            var controller = _container.Resolve<StoreController>();
+            var controller = Container.Resolve<StoreController>();
             var response = (ViewResult) controller.Index();
             Assert.AreEqual(response.ViewBag.Price, result);
         }

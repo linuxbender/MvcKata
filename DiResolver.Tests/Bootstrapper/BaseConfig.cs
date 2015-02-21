@@ -27,19 +27,19 @@ namespace DiResolver.Tests.Bootstrapper
 {
     public abstract class BaseConfig
     {
-        protected IUnityContainer _container;
+        protected IUnityContainer Container;
 
         [SetUp]
         public void Setup()
         {
-            _container = new UnityContainer();
-            ContainerConfiguration.RegisterTypes(_container);
+            Container = new UnityContainer();
+            ContainerConfiguration.RegisterTypes(Container);
         }
 
         [TearDown]
         public void Cleanup()
         {
-            _container.Dispose();
+            Container.Dispose();
         }
     }
 }
