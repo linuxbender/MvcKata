@@ -51,11 +51,11 @@ namespace DiResolver.Tests.Bootstrapper
             Assert.IsNull(result);
         }
 
-        [Test] [Ignore]
+        [Test]
         public void Given_UnityViewActivator_Register_INavigationProvider_Exceptet_To_Resolve_NavigationList()
         {
-            Container.RegisterType<INavigationItem, MockNaviItemA>();
-            Container.RegisterType<INavigationItem, MockNaviItemB>();
+            Container.RegisterType<INavigationItem, MockNaviItemA>("NaviItemA");
+            Container.RegisterType<INavigationItem, MockNaviItemB>("NaviItemB");
             Container.RegisterType<IMessageService, MessageService>(new InjectionConstructor("1,2,3"));
 
             var viewActivator = Container.Resolve<UnityViewActivator>();
