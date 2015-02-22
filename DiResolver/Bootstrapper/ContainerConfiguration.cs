@@ -53,6 +53,8 @@ namespace DiResolver.Bootstrapper
 
             //container.RegisterType<IStorePrice, StorePrice>("BasicStore",new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
             //container.RegisterType<IStorePrice, DiscountTwentyPercent>(new InjectionConstructor(new ResolvedParameter<IStorePrice>("BasicStore")));
+            //container.RegisterType<IMessageService, MessageService>(new InjectionConstructor("Hello from Message Service..."));
+
 
             // Read RegisterType from configuration
             container.LoadConfiguration();

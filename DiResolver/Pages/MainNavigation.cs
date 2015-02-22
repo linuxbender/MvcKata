@@ -19,55 +19,22 @@
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using DiResolver.Pages;
+using DiResolver.Services;
 using Microsoft.Practices.Unity;
 
-namespace DiResolver.Bootstrapper
+namespace DiResolver.Pages
 {
-    public class UnityViewActivator : IViewPageActivator
+    public class MainNavigation : WebViewPage, INavigationProvider
     {
-        private readonly IUnityContainer _container;
+        [Dependency]
+        public IMessageService MessageService { get; set; }
 
-        public UnityViewActivator(IUnityContainer container)
+        public IEnumerable<INavigationItem> NavigationList { get; set; }
+
+        public override void Execute()
         {
-            _container = container;
-        }
-
-        public object Create(ControllerContext controllerContext, Type type)
-        {
-            try
-            {
-                if (type.GetInterfaces().Contains(typeof(INavigationProvider)))
-                {
-                    var service = _container.Resolve(type) as INavigationProvider;
-                    if (service != null)
-                    {
-                        service.NavigationList = GetNavigationList();
-                    }
-
-                    return service;
-                }
-
-                return _container.Resolve(type);
-            }
-            catch (Exception)
-            {
-                //ToDo: Log Exception - Type not found for the view injection
-                return null;
-            }
-        }
-
-        private IEnumerable<INavigationItem> GetNavigationList()
-        {
-            foreach (var item in _container.ResolveAll<INavigationItem>())
-            {
-               yield return item;
-            }
         }
     }
 }
-

@@ -105,6 +105,9 @@
     <Compile Include="Bootstrapper\ContainerConfigInterceptorTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigRuleEngineTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigurationTests.cs" />
+    <Compile Include="Bootstrapper\ContainerConfigViewTests.cs" />
+    <Compile Include="Bootstrapper\MockNaviItemA.cs" />
+    <Compile Include="Bootstrapper\MockNaviItemB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

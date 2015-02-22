@@ -42,5 +42,10 @@ namespace DiResolver.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
+
+        public ActionResult Message()
+        {
+            return View();
+        }
     }
 }
