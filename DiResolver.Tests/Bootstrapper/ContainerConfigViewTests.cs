@@ -23,6 +23,7 @@ using System.Linq;
 using DiResolver.Bootstrapper;
 using DiResolver.Pages;
 using DiResolver.Services;
+using DiResolver.Tests.Mocks;
 using Microsoft.Practices.Unity;
 using NUnit.Framework;
 

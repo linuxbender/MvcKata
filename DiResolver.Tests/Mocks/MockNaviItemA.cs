@@ -21,7 +21,7 @@
 
 using DiResolver.Pages;
 
-namespace DiResolver.Tests.Bootstrapper
+namespace DiResolver.Tests.Mocks
 {
     public class MockNaviItemA : INavigationItem
     {

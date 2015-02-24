@@ -106,8 +106,12 @@
     <Compile Include="Bootstrapper\ContainerConfigRuleEngineTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigurationTests.cs" />
     <Compile Include="Bootstrapper\ContainerConfigViewTests.cs" />
-    <Compile Include="Bootstrapper\MockNaviItemA.cs" />
-    <Compile Include="Bootstrapper\MockNaviItemB.cs" />
+    <Compile Include="Mocks\IMockBusiness.cs" />
+    <Compile Include="Mocks\MockBusiness.cs" />
+    <Compile Include="Mocks\MockBusinessParam.cs" />
+    <Compile Include="Mocks\MockBusinessResult.cs" />
+    <Compile Include="Mocks\MockNaviItemA.cs" />
+    <Compile Include="Mocks\MockNaviItemB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
