@@ -2,7 +2,7 @@
 module.exports = function(grunt) {
 	var path = require("path");
 
-	var config = {
+	var appConfig = {
 		app: require("./bower.json").appPath,
 		style: "Styles",
 		tmp:"tmp",
@@ -11,10 +11,10 @@ module.exports = function(grunt) {
 	};
 
 	require("load-grunt-config")(grunt,{
-		configPath: path.join(process.cwd(), "grunt"),
+		configPath: path.join(process.cwd(), "config"),
 		init: true,
 		data: {
-			app: config
+			config: appConfig
 		}
 	});
 
