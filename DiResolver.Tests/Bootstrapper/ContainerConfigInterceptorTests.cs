@@ -34,7 +34,7 @@ namespace DiResolver.Tests.Bootstrapper
         {
             Container.RegisterType<IStorePrice, StorePrice>("Demo12", new Interceptor<InterfaceInterceptor>(), new InterceptionBehavior<AuditProvider>());
 
-            IStorePrice storePriceService = Container.Resolve<StorePrice>();
+            var storePriceService = Container.Resolve<IStorePrice>("Demo12");
             var result = storePriceService.GetPrice(20);
             Assert.AreEqual(result, 21.6);
         }
