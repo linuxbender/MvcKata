@@ -55,9 +55,11 @@ namespace DiResolver.Tests.Bootstrapper
 
             var resultA = myBusiness.Execute(funA, businessProductA);
             var resultB = myBusiness.Execute(funB, businessProductB);
+            var resultNullable = myBusiness.Execute(funB, null);
 
             Assert.IsNotNull(resultA.Result);
             Assert.IsNotNull(resultB.Result);
+            Assert.AreEqual(resultNullable.Result, 0);
             Assert.AreNotEqual(resultA.Result, resultB.Result);
         }
     }

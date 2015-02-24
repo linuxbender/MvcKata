@@ -27,12 +27,16 @@ namespace DiResolver.Tests.Mocks
     {
         public MockBusinessResult Execute(Func<MockBusinessParam, MockBusinessResult> func,MockBusinessParam param)
         {
-            var result = func(param);
-            if (result == null)
+            if (param != null)
             {
-                return new MockBusinessResult{Discount = 0,Name = "", OrignalPrice = 0, Result = 0};
+                var result = func(param);
+
+                if (result != null)
+                {
+                    return result;
+                }
             }
-            return result;
+            return new MockBusinessResult { Discount = 0, Name = "", OrignalPrice = 0, Result = 0 };
         }
     }
 }
